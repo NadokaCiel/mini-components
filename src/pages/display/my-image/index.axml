@@ -1,0 +1,4 @@
+<view class="image-list">
+  <myimage class="image-line" a:for="{{list}}" a:key="index" lazy-load="{{true}}" height="600" width="600" src="{{item.url}}">
+  </myimage>
+</view>

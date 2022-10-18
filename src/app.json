@@ -1,5 +1,8 @@
 {
+  "pages": [
+    "pages/display/my-image/index"
+  ],
   "usingComponents": {
-    "Banner": "./components/Banner/index"
+    "MyImage": "./components/Image/index"
   }
 }

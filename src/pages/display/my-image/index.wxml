@@ -1,0 +1,4 @@
+<view class="image-list">
+  <MyImage class="image-line" wx:for="{{list}}" wx:key="index" lazy-load="{{true}}" height="600" width="600" src="{{item.url}}">
+  </MyImage>
+</view>

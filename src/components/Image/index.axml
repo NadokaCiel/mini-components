@@ -1,0 +1,5 @@
+<view class="vs-image-box">
+  <image src="{{src}}" class="vs-image" mode="{{mode}}" lazy-load="{{lazyLoad}}" binderror="handleError" bindload="handleLoaded" a:if="{{!error}}"/>
+  <image src="/components/Image/assets/icon-loading.svg" class="vs-icon vs-spin" mode="aspectFit" a:if="{{loading}}"/>
+  <image src="/components/Image/assets/icon-error.svg" class="vs-icon" mode="aspectFit" a:if="{{error}}"/>
+</view>

@@ -1,0 +1,18 @@
+<view class="vs-image-box">
+  <image
+    src="{{src}}"
+    class="vs-image"
+    mode="{{mode}}"
+    lazy-load="{{lazyLoad}}"
+    binderror="handleError"
+    bindload="handleLoaded"
+    wx:if="{{!error}}"
+  />
+  <image
+    src="./assets/icon-loading.svg"
+    class="vs-icon vs-spin"
+    mode="aspectFit"
+    wx:if="{{loading}}"
+  />
+  <image src="./assets/icon-error.svg" class="vs-icon" mode="aspectFit" wx:if="{{error}}" />
+</view>

@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "file": "components/Image/index.js",
+  "mappings": "8SAAA,EAAQ,KAA6B,EAAQ,I,shCCA7C,OAEA,aAWA,yE,OACE,EAAAA,KAAyC,CACvCC,SAAS,EACTC,OAAO,GAGT,EAAAC,WAAqB,CAOnBC,IAAK,GAMLC,KAAM,cAONC,UAAU,EAOVC,MAAM,EAONC,qBAAqB,GAGvB,EAAAC,QAAiC,CAC/BC,eAAgB,gB,CA6CpB,QAzFsB,OAgDpB,YAAAN,IADA,WAEEO,KAAKC,QAAQ,CACXV,OAAO,EACPD,SAAS,GAEb,EAGA,YAAAY,YADA,SACYC,G,QACVH,KAAKC,QAAQ,CACXX,SAAS,EACTC,OAAO,IAQTS,KAAKI,aAAa,UAAW,CAC3BC,OAAyB,QAAjB,EAAS,QAAT,EAAAF,aAAC,EAADA,EAAGG,cAAM,eAAED,cAAM,QAAI,IAEjC,EAGA,YAAAE,aADA,SACaJ,G,QACXH,KAAKC,QAAQ,CACXX,SAAS,EACTC,OAAO,IAQTS,KAAKI,aAAa,WAAY,CAC5BI,OAAiB,QAAT,EAAAL,aAAC,EAADA,EAAGG,cAAM,eAAEE,OACnBC,MAAgB,QAAT,EAAAN,aAAC,EAADA,EAAGG,cAAM,eAAEG,OAEtB,EAzCA,IAAC,IAAAC,Y,2GAQD,GAAC,EAAAC,O,yHAiBD,GAAC,EAAAA,O,0HAiBH,C,CAzFA,CAAsB,EAAAC,eA2FtBC,EAAQC,OAAO,IAAID,E,oFCxGnB,M",
+  "sources": [
+    "webpack:///./src/components/Image/index.axml",
+    "webpack:///./src/components/Image/index.ts",
+    "webpack:///./src/components/Image/style/index.ts"
+  ],
+  "sourcesContent": [
+    "require('./assets/icon-loading.svg');require('./assets/icon-error.svg');",
+    "import \"./style\";\nimport { IDataVO, IProps } from \"./__interface__/vo\";\nimport {\n  method,\n  ComponentBase,\n  IComponentData,\n  IMiniComponentOptions,\n  observer,\n} from \"mini-program-base\";\n\n/**\n * 图片加载组件\n */\nclass VsImage extends ComponentBase<IDataVO> {\n  data: IComponentData<VsImage, IDataVO> = {\n    loading: true,\n    error: false,\n  };\n\n  properties: IProps = {\n    /**\n     * @property src\n     * @description 图片资源\n     * @type string\n     * @requires\n     */\n    src: \"\",\n    /**\n     * @property mode\n     * @description mode 的合法值请参考：https://developers.weixin.qq.com/miniprogram/dev/component/image.html\n     * @type string\n     */\n    mode: \"scaleToFill\",\n    /**\n     * @property lazyLoad\n     * @description 图片懒加载\n     * @type boolean\n     * @requires\n     */\n    lazyLoad: false,\n    /**\n     * @property webp\n     * @description 默认不解析 webP 格式，只支持网络资源\n     * @type boolean\n     * @requires\n     */\n    webp: false,\n    /**\n     * @property showMenuByLongpress\n     * @description 长按图片显示菜单\n     * @type boolean\n     * @requires\n     */\n    showMenuByLongpress: false,\n  };\n\n  options: IMiniComponentOptions = {\n    styleIsolation: \"apply-shared\",\n  };\n\n  @observer()\n  src() {\n    this.setData({\n      error: false,\n      loading: true,\n    });\n  }\n\n  @method\n  handleError(e) {\n    this.setData({\n      loading: false,\n      error: true,\n    });\n\n    /**\n     * @event onError\n     * @description 图片加载完成后触发\n     * @detail IOnError {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onError\", {\n      errMsg: e?.detail?.errMsg ?? \"\",\n    });\n  }\n\n  @method\n  handleLoaded(e) {\n    this.setData({\n      loading: false,\n      error: false,\n    });\n\n    /**\n     * @event onLoaded\n     * @description 图片加载完成后触发\n     * @detail IOnLoaded {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onLoaded\", {\n      height: e?.detail?.height,\n      width: e?.detail?.width,\n    });\n  }\n}\n\nVsImage.render(new VsImage());\n",
+    "import \"./style\";\nimport { IDataVO, IProps } from \"./__interface__/vo\";\nimport {\n  method,\n  ComponentBase,\n  IComponentData,\n  IMiniComponentOptions,\n  observer,\n} from \"mini-program-base\";\n\n/**\n * 图片加载组件\n */\nclass VsImage extends ComponentBase<IDataVO> {\n  data: IComponentData<VsImage, IDataVO> = {\n    loading: true,\n    error: false,\n  };\n\n  properties: IProps = {\n    /**\n     * @property src\n     * @description 图片资源\n     * @type string\n     * @requires\n     */\n    src: \"\",\n    /**\n     * @property mode\n     * @description mode 的合法值请参考：https://developers.weixin.qq.com/miniprogram/dev/component/image.html\n     * @type string\n     */\n    mode: \"scaleToFill\",\n    /**\n     * @property lazyLoad\n     * @description 图片懒加载\n     * @type boolean\n     * @requires\n     */\n    lazyLoad: false,\n    /**\n     * @property webp\n     * @description 默认不解析 webP 格式，只支持网络资源\n     * @type boolean\n     * @requires\n     */\n    webp: false,\n    /**\n     * @property showMenuByLongpress\n     * @description 长按图片显示菜单\n     * @type boolean\n     * @requires\n     */\n    showMenuByLongpress: false,\n  };\n\n  options: IMiniComponentOptions = {\n    styleIsolation: \"apply-shared\",\n  };\n\n  @observer()\n  src() {\n    this.setData({\n      error: false,\n      loading: true,\n    });\n  }\n\n  @method\n  handleError(e) {\n    this.setData({\n      loading: false,\n      error: true,\n    });\n\n    /**\n     * @event onError\n     * @description 图片加载完成后触发\n     * @detail IOnError {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onError\", {\n      errMsg: e?.detail?.errMsg ?? \"\",\n    });\n  }\n\n  @method\n  handleLoaded(e) {\n    this.setData({\n      loading: false,\n      error: false,\n    });\n\n    /**\n     * @event onLoaded\n     * @description 图片加载完成后触发\n     * @detail IOnLoaded {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onLoaded\", {\n      height: e?.detail?.height,\n      width: e?.detail?.width,\n    });\n  }\n}\n\nVsImage.render(new VsImage());\n"
+  ],
+  "names": [
+    "data",
+    "loading",
+    "error",
+    "properties",
+    "src",
+    "mode",
+    "lazyLoad",
+    "webp",
+    "showMenuByLongpress",
+    "options",
+    "styleIsolation",
+    "this",
+    "setData",
+    "handleError",
+    "e",
+    "triggerEvent",
+    "errMsg",
+    "detail",
+    "handleLoaded",
+    "height",
+    "width",
+    "observer",
+    "method",
+    "ComponentBase",
+    "VsImage",
+    "render"
+  ],
+  "sourceRoot": ""
+}

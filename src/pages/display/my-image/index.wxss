@@ -1,0 +1,12 @@
+.image-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-line {
+  margin: 400rpx auto;
+  width: 600rpx;
+  height: 400rpx;
+}
