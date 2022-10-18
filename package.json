@@ -1,6 +1,6 @@
 {
   "name": "mini-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Components for multi miniapp platform",
   "author": "ciel | Email:ciel.zhang@verystar.cn",
   "main": "dist/",
