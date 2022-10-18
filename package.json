@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Components for multi miniapp platform",
   "author": "ciel | Email:ciel.zhang@verystar.cn",
-  "private": true,
   "main": "dist/",
   "files": [
     "dist",
