@@ -8,7 +8,7 @@
     "dist",
     "lib"
   ],
-  "miniprogram": "dist/release",
+  "miniprogram": "dist",
   "repository": {
     "type": "git",
     "url": "git+https://github.com:NadokaCiel/mini-components.git"
@@ -35,8 +35,9 @@
     "postversion": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md package.json && git add -u",
     "dev": "ziu-server --config scripts/config.js -- development",
     "dev:aliapp": "ziu-server --config scripts/config.js --platform aliapp -- development",
-    "build": "npm run lint:todo && ziu-server --config scripts/config.js",
+    "build:weapp": "npm run lint:todo && ziu-server --config scripts/config.js",
     "build:aliapp": "npm run lint:todo && ziu-server --config scripts/config.js --platform aliapp",
+    "build": "npm run lint:todo && ziu-server --config scripts/config.js && ziu-server --config scripts/config.js --platform aliapp",
     "prepublish": "npm run build",
     "report": "npm run build -- production -r"
   },
