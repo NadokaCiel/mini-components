@@ -37,7 +37,7 @@
     "dev:aliapp": "ziu-server --config scripts/config.js --platform aliapp -- development",
     "build:weapp": "npm run lint:todo && ziu-server --config scripts/config.js",
     "build:aliapp": "npm run lint:todo && ziu-server --config scripts/config.js --platform aliapp",
-    "build": "npm run lint:todo && ziu-server --config scripts/config.js && ziu-server --config scripts/config.js --platform aliapp",
+    "build": "rimraf ./dist && npm run lint:todo && ziu-server --config scripts/config.js && ziu-server --config scripts/config.js --platform aliapp",
     "prepublish": "npm run build",
     "report": "npm run build -- production -r"
   },

@@ -70,10 +70,9 @@ module.exports = {
 function getDist() {
 
   const distList = {
-    development: `dist/dev/${process.env.ZIU_BUILD_PLATFORM}`,
-    testing: `dist/testing/${process.env.ZIU_BUILD_PLATFORM}`,
-    staging: `dist/staging/${process.env.ZIU_BUILD_PLATFORM}`,
-    production: `dist/release/${process.env.ZIU_BUILD_PLATFORM}`,
+    development: `dist/${process.env.ZIU_BUILD_PLATFORM}`,
+    testing: `dist/${process.env.ZIU_BUILD_PLATFORM}`,
+    production: `dist/${process.env.ZIU_BUILD_PLATFORM}`,
   };
 
   return join(process.cwd(), distList[process.env.PRJ_ENV]);
