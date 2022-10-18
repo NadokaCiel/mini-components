@@ -12,20 +12,14 @@
 
 - 启动本地开发
 
+微信小程序
 ```javascript
 npm run dev
 ```
 
-- 打包`testing`环境代码
-
+支付宝小程序
 ```javascript
-npm run testing
-```
-
-- 打包`staging`环境代码
-
-```javascript
-npm run staging
+npm run dev:aliapp
 ```
 
 - 打包`production`生产环境代码
@@ -67,9 +61,5 @@ npm run unhusky
 #### 测试环境
 
 - appid: <appid>
-
-### 接口文档
-
-[点击查看](./docs/api.md)
 
 - **其他相关文档请在`docs`文件夹下查找**
