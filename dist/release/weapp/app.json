@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Banner": "./components/Banner/index"
+  },
+  "subPackages": []
+}

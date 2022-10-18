@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "file": "components/Banner/index.js",
+  "mappings": "i1CAAA,OAEA,aAKA,yE,OACE,EAAAA,KAAwC,CACtCC,QAAS,EACTC,UAAW,GAGb,EAAAC,WAAqB,CAMnBC,UAAW,QAMXC,SAAU,OAOVC,OAAQ,GAORC,cAAe,IAGjB,EAAAC,QAAiC,CAC/BC,eAAgB,gB,CAmCpB,QAvEqB,OAwCnB,YAAAF,cADA,WAGEG,KAAKC,QAAQ,CACXV,QAAS,EACTC,UAAW,GAEf,EAGA,YAAAU,cADA,WAEE,OAAO,CACT,EAGA,YAAAC,gBADA,SACgBC,G,MAMdJ,KAAKK,aAAa,aAAc,CAC9BC,MAA8B,QAAvB,EAAAF,EAAEG,cAAcC,eAAO,eAAEF,OAEpC,EAGA,YAAAG,oBADA,SACoBL,G,MAClBJ,KAAKC,QAAQ,CACXT,WAAmB,QAAR,EAAAY,EAAEM,cAAM,eAAEnB,UAAW,GAEpC,EA/BA,IAAC,IAAAoB,Y,qHASD,GAAC,EAAAC,O,qHAKD,GAAC,EAAAA,O,6HAYD,GAAC,EAAAA,O,iIAMH,C,CAvEA,CAAqB,EAAAC,eAyErBC,EAAOC,OAAO,IAAID,E,oFChFlB,K",
+  "sources": [
+    "webpack:///./src/components/Banner/index.ts",
+    "webpack:///./src/components/Banner/style/index.ts"
+  ],
+  "sourcesContent": [
+    "import \"./style\";\nimport { IDataVO, IProps } from \"./__interface__/vo\";\nimport { method, ComponentBase, IComponentData, IMiniComponentOptions, observer } from \"mini-program-base\";\n\n/**\n * banner组件\n */\nclass Banner extends ComponentBase<IDataVO> {\n  data: IComponentData<Banner, IDataVO> = {\n    current: 0,\n    indicator: 0,\n  };\n\n  properties: IProps = {\n    /**\n     * @property dotBottom\n     * @description 指示器下边距\n     * @type string\n     */\n    dotBottom: \"20rpx\",\n    /**\n     * @property dotColor\n     * @description 指示器背景颜色，十六进制或rgba\n     * @type string\n     */\n    dotColor: \"#fff\",\n    /**\n     * @property height\n     * @description banner组件的高度\n     * @requires\n     * @type string\n     */\n    height: \"\",\n    /**\n     * @property componentData\n     * @description banner数据\n     * @requires\n     * @type IBannersVO {@link ./__interface__/vo.d.ts}\n     */\n    componentData: [],\n  };\n\n  options: IMiniComponentOptions = {\n    styleIsolation: \"apply-shared\",\n  };\n\n  @observer()\n  componentData() {\n    // banner发生变化时，从第一张开始播放\n    this.setData({\n      current: 0,\n      indicator: 0,\n    });\n  }\n\n  @method\n  stopTouchMove() {\n    return false;\n  }\n\n  @method\n  handleBannerTap(e) {\n    /**\n     * @event onFallback\n     * @description 用户点击后触发\n     * @detail IOnFallbackDetail {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onFallback\", {\n      index: e.currentTarget.dataset?.index,\n    });\n  }\n\n  @method\n  handleChangeCurrent(e) {\n    this.setData({\n      indicator: e.detail?.current || 0,\n    });\n  }\n}\n\nBanner.render(new Banner());\n",
+    "import \"./style\";\nimport { IDataVO, IProps } from \"./__interface__/vo\";\nimport { method, ComponentBase, IComponentData, IMiniComponentOptions, observer } from \"mini-program-base\";\n\n/**\n * banner组件\n */\nclass Banner extends ComponentBase<IDataVO> {\n  data: IComponentData<Banner, IDataVO> = {\n    current: 0,\n    indicator: 0,\n  };\n\n  properties: IProps = {\n    /**\n     * @property dotBottom\n     * @description 指示器下边距\n     * @type string\n     */\n    dotBottom: \"20rpx\",\n    /**\n     * @property dotColor\n     * @description 指示器背景颜色，十六进制或rgba\n     * @type string\n     */\n    dotColor: \"#fff\",\n    /**\n     * @property height\n     * @description banner组件的高度\n     * @requires\n     * @type string\n     */\n    height: \"\",\n    /**\n     * @property componentData\n     * @description banner数据\n     * @requires\n     * @type IBannersVO {@link ./__interface__/vo.d.ts}\n     */\n    componentData: [],\n  };\n\n  options: IMiniComponentOptions = {\n    styleIsolation: \"apply-shared\",\n  };\n\n  @observer()\n  componentData() {\n    // banner发生变化时，从第一张开始播放\n    this.setData({\n      current: 0,\n      indicator: 0,\n    });\n  }\n\n  @method\n  stopTouchMove() {\n    return false;\n  }\n\n  @method\n  handleBannerTap(e) {\n    /**\n     * @event onFallback\n     * @description 用户点击后触发\n     * @detail IOnFallbackDetail {@link ./__interface__/event.d.ts}\n     */\n    this.triggerEvent(\"onFallback\", {\n      index: e.currentTarget.dataset?.index,\n    });\n  }\n\n  @method\n  handleChangeCurrent(e) {\n    this.setData({\n      indicator: e.detail?.current || 0,\n    });\n  }\n}\n\nBanner.render(new Banner());\n"
+  ],
+  "names": [
+    "data",
+    "current",
+    "indicator",
+    "properties",
+    "dotBottom",
+    "dotColor",
+    "height",
+    "componentData",
+    "options",
+    "styleIsolation",
+    "this",
+    "setData",
+    "stopTouchMove",
+    "handleBannerTap",
+    "e",
+    "triggerEvent",
+    "index",
+    "currentTarget",
+    "dataset",
+    "handleChangeCurrent",
+    "detail",
+    "observer",
+    "method",
+    "ComponentBase",
+    "Banner",
+    "render"
+  ],
+  "sourceRoot": ""
+}
